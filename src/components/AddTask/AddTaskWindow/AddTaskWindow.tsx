@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { useTask } from "../../../context/Task/TaskContext";
-import { useAuth } from "../../../context/Auth/AuthContext";
+import { useAuth, useTask } from "../../../context";
 import { Task } from "../../../context/ContextTypes";
 
 import "./AddTaskWindow.css";

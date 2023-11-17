@@ -1,4 +1,4 @@
-import { useAuth } from "../../context/Auth/AuthContext";
+import { useAuth } from "../../context";
 import "./Header.css";
 
 const Header = () => {

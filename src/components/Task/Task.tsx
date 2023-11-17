@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Description, Radio } from "..";
 import AddTaskWindow from "../AddTask/AddTaskWindow/AddTaskWindow";
-import { useTask } from "../../context/Task/TaskContext";
+import { useTask } from "../../context";
 import { Task as TaskTypes } from "../../context/ContextTypes";
 import "./Task.css";
 

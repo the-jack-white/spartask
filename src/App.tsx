@@ -8,9 +8,9 @@ import {
   Heading,
   Task,
 } from "./components";
-import { useTask } from "./context/Task/TaskContext";
-import { useAuth } from "./context/Auth/AuthContext";
-import { retrieveLocalStorage } from "./utils/utils";
+import { useAuth, useTask } from "./context";
+import { retrieveLocalStorage } from "./utils";
+
 import "./App.css";
 
 function App() {
@@ -18,8 +18,8 @@ function App() {
   const { allTasks, setAllTasks } = useTask();
 
   useEffect(() => {
-    setAllTasks(retrieveLocalStorage("tasks"));
-    setCurrentUser(retrieveLocalStorage("user"));
+    setAllTasks(retrieveLocalStorage("tasks", true));
+    setCurrentUser(retrieveLocalStorage("user", false));
   }, []);
 
   console.log("CUrrent USer: ", currentUser);

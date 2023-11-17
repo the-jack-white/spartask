@@ -1,4 +1,4 @@
-import { shortString } from "../../utils/utils";
+import { shortString } from "../../utils";
 import "./Description.css";
 
 type DescriptionProps = {
