@@ -1,0 +1,12 @@
+.radio-container {
+  background-color: #ffffff;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.25rem;
+  height: 1.3rem;
+  cursor: pointer;
+}
+
+.radio-container:hover {
+  background-color: #dddddd;
+}

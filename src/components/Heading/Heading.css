@@ -1,0 +1,11 @@
+.heading-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.heading-date {
+  font-size: 0.85rem;
+  font-weight: 300;
+}

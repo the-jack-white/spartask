@@ -1,0 +1,21 @@
+.add-task-button {
+  cursor: pointer;
+  border: none;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.add-task-icon {
+  font-size: 1.75rem;
+}
+
+.add-task-button:hover {
+  color: black;
+  border: 1px solid #eeeeee;
+  border-radius: 0.5rem;
+}

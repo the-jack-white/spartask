@@ -1,0 +1,17 @@
+.desc-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.desc-container-selected {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.desc-container-selected h5 {
+  color: gray;
+}
