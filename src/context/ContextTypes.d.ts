@@ -2,6 +2,7 @@ export type Task = {
   id: string;
   userId: string;
   timestamp: number;
+  editTimestamp?: number;
   title: string;
   description?: string;
   completed: boolean;

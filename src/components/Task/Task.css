@@ -6,9 +6,17 @@
 
 .task-icon {
   padding: 0.25rem;
+  cursor: pointer;
 }
 
-.task-icon:hover {
-  cursor: pointer;
+.remove-icon:hover {
   color: red;
+}
+
+.edit-icon:hover {
+  color: rgb(1, 204, 1);
+}
+
+.task-icon-container {
+  display: flex;
 }
