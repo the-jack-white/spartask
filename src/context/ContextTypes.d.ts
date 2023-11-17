@@ -17,13 +17,10 @@ export type User = {
 
 export type TaskContextType = {
   allTasks: Task[];
-  doneTasks: Task[];
   setAllTasks: React.Dispatch<React.SetStateAction<Task[]>>;
-  setDoneTasks: React.Dispatch<React.SetStateAction<Task[]>>;
   addTask: (task: Task) => void;
   removeTask: (id: string) => void;
   editTask: (task: Task, id: string) => void;
-  markAsDone: (status: boolean, id: string) => void;
 };
 
 export type AuthContextType = {

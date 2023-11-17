@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Description, Radio } from "..";
+import AddTaskWindow from "../AddTask/AddTaskWindow/AddTaskWindow";
 import { useTask } from "../../context/Task/TaskContext";
 import { Task as TaskTypes } from "../../context/ContextTypes";
 import "./Task.css";
-import AddTaskWindow from "../AddTask/AddTaskWindow/AddTaskWindow";
 
 const Task = ({
   id,

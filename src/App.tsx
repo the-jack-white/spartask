@@ -29,19 +29,20 @@ function App() {
       <Header />
       <AppContainer>
         <Heading title="Today" date={new Date(Date.now()).toDateString()} />
-        {allTasks
-          .filter((filterT) => filterT.userId === currentUser.id)
-          .map((task) => (
-            <Task
-              key={task.id}
-              id={task.id}
-              userId={currentUser.id}
-              timestamp={task.timestamp}
-              title={task.title}
-              description={task.description}
-              completed={task.completed}
-            />
-          ))}
+        {allTasks &&
+          allTasks
+            .filter((filterT) => filterT.userId === currentUser.id)
+            .map((task) => (
+              <Task
+                key={task.id}
+                id={task.id}
+                userId={currentUser.id}
+                timestamp={task.timestamp}
+                title={task.title}
+                description={task.description}
+                completed={task.completed}
+              />
+            ))}
         <AddTask />
       </AppContainer>
     </div>

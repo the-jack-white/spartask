@@ -11,8 +11,8 @@ export const saveToLocalStorage = (
   localStorage.setItem(storageId, JSON.stringify(tasks));
 };
 
-export const retrieveLocalStorage = (storageId: string) => {
+export const retrieveLocalStorage = (storageId: string, isArray: boolean) => {
   const jsonString = localStorage.getItem(storageId);
 
-  return jsonString ? JSON.parse(jsonString) : [];
+  return jsonString ? JSON.parse(jsonString) : isArray ? [] : null;
 };
