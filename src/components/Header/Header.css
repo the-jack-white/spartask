@@ -1,0 +1,35 @@
+.header-container {
+  background-color: #ffffff;
+  width: 100vw;
+  height: 3.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  font-size: 1.75rem;
+  margin: 0 2rem;
+  color: black;
+  font-weight: 600;
+}
+
+.header-button {
+  margin: 0 2rem;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.header-button:hover {
+  background-color: #eeeeee;
+}
+
+.header-button-icon {
+  font-size: 1.25rem;
+}

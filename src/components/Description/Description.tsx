@@ -14,9 +14,7 @@ const Description = ({
   description,
   shortLength,
 }: DescriptionProps) => {
-  const shortDescription = description
-    ? shortString(description, shortLength)
-    : "Description";
+  const shortDescription = description && shortString(description, shortLength);
 
   return (
     <div

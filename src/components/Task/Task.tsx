@@ -1,14 +1,22 @@
 import { Description, Radio } from "..";
 import { useTask } from "../../context/Task/TaskContext";
-import { Task as TaskTypes } from "../../context/TaskTypes";
+import { Task as TaskTypes } from "../../context/ContextTypes";
 import "./Task.css";
 
-const Task = ({ id, timestamp, title, description, completed }: TaskTypes) => {
+const Task = ({
+  id,
+  userId,
+  timestamp,
+  title,
+  description,
+  completed,
+}: TaskTypes) => {
   const { removeTask, editTask } = useTask();
   const radioHandler = () => {
     editTask(
       {
         id,
+        userId,
         timestamp,
         title,
         description,

@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { TaskProvider } from "./context/Task/TaskContext";
+import { AuthProvider } from "./context/Auth/AuthContext";
 import App from "./App";
 import "./index.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { TaskProvider } from "./context/Task/TaskContext";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <TaskProvider>
-      <App />
-    </TaskProvider>
+    <AuthProvider>
+      <TaskProvider>
+        <App />
+      </TaskProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

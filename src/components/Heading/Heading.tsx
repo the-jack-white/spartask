@@ -2,7 +2,7 @@ import "./Heading.css";
 
 type HeadingProps = {
   title: string;
-  date: string;
+  date?: string;
 };
 
 const Heading = ({ title, date }: HeadingProps) => {

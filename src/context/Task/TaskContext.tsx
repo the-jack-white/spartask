@@ -1,13 +1,16 @@
 import { ReactNode, createContext, useContext, useState } from "react";
-import { Task, TaskContextType } from "../TaskTypes";
+import { Task, TaskContextType } from "../ContextTypes";
 import { saveToLocalStorage } from "../../utils/utils";
 
 const taskContextDefaultValues: TaskContextType = {
   allTasks: [],
+  doneTasks: [],
   setAllTasks: () => {},
+  setDoneTasks: () => {},
   addTask: () => {},
   removeTask: () => {},
   editTask: () => {},
+  markAsDone: () => {},
 };
 
 const TaskContext = createContext<TaskContextType>(taskContextDefaultValues);
@@ -18,6 +21,7 @@ export const useTask = () => {
 
 export const TaskProvider = ({ children }: { children: ReactNode }) => {
   const [allTasks, setAllTasks] = useState<Task[]>([]);
+  const [doneTasks, setDoneTasks] = useState<Task[]>([]);
 
   const addTask = (task: Task) => {
     console.log("[INFO] - Add Task: ", task);
@@ -52,12 +56,29 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
     console.log("Mapped: ", mappedTasks);
   };
 
+  const markAsDone = (status: boolean, id: string) => {
+    console.log("[INFO] - Mark ID as Done: ", id);
+    const filtered = allTasks
+      .filter((task) => task.id === id)
+      .map((filteredTask) => {
+        return {
+          ...filteredTask,
+          completed: status,
+        };
+      });
+    saveToLocalStorage("done_tasks", filtered);
+    setDoneTasks(filtered);
+  };
+
   const value = {
     allTasks,
+    doneTasks,
     setAllTasks,
+    setDoneTasks,
     addTask,
     removeTask,
     editTask,
+    markAsDone,
   };
 
   return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>;

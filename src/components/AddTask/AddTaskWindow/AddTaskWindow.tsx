@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useTask } from "../../../context/Task/TaskContext";
+import { useAuth } from "../../../context/Auth/AuthContext";
 import "./AddTaskWindow.css";
 
 type AddTaskWindowProps = {
@@ -15,21 +16,25 @@ const AddTaskWindow = ({
   addTitle,
 }: AddTaskWindowProps) => {
   const { addTask } = useTask();
+  const { currentUser } = useAuth();
   const [title, setTitle] = useState<string>("");
   const [desc, setDesc] = useState<string>("");
 
   const addTaskHandler = () => {
     console.log("ADD Task.....");
-    const task = {
-      id: uuidv4(),
-      timestamp: Date.now(),
-      title,
-      description: desc,
-      completed: false,
-    };
+    if (currentUser) {
+      const task = {
+        id: uuidv4(),
+        userId: currentUser.id,
+        timestamp: Date.now(),
+        title,
+        description: desc,
+        completed: false,
+      };
 
-    addTask(task);
-    closeCallback(false);
+      addTask(task);
+      closeCallback(false);
+    }
   };
 
   return (
