@@ -1,14 +1,16 @@
-import bcrypt from "bcryptjs";
+export const simulateFakeRequest = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const fakeToken = "fakeToken123";
+      resolve(fakeToken);
+    }, 1000);
+  });
+};
 
-export const generateAuthToken = (password: string) => {
-  return new Promise((res, rej) => {
-    try {
-      const salt = bcrypt.genSaltSync(10);
-      const hash = bcrypt.hashSync(password, salt);
-
-      res(hash);
-    } catch (err) {
-      rej(err);
-    }
+export const simulateFakeRequestValidation = (token: string) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ token, isAuthenticated: true });
+    }, 1000);
   });
 };

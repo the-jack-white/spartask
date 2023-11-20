@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { useCookies } from "react-cookie";
+
 import {
   AddTask,
   AppContainer,
@@ -17,14 +19,14 @@ function App() {
   const { currentUser, setCurrentUser } = useAuth();
   const { allTasks, setAllTasks } = useTask();
 
+  const [cookies] = useCookies(["isAuthenticated"]);
+
   useEffect(() => {
     setAllTasks(retrieveLocalStorage("tasks", true));
     setCurrentUser(retrieveLocalStorage("user", false));
   }, []);
 
-  console.log("CUrrent USer: ", currentUser);
-
-  return currentUser ? (
+  return cookies.isAuthenticated && currentUser ? (
     <div className="main-container">
       <Header />
       <AppContainer>

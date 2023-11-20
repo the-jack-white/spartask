@@ -8,3 +8,16 @@
   flex-direction: column;
   gap: 0.75rem;
 }
+
+.app-version {
+  text-align: center;
+  margin-top: 3rem;
+  color: rgb(202, 202, 202);
+}
+
+@media only screen and (max-width: 480px) {
+  .auth-container {
+    width: 90vw;
+    padding: 2rem 1rem;
+  }
+}

@@ -1,7 +1,12 @@
 import { ReactNode, createContext, useContext, useState } from "react";
-import { AuthContextType, User } from "../ContextTypes";
-import { generateAuthToken } from "../../utils/auth";
-import { saveToLocalStorage } from "../../utils/utils";
+import { useCookies } from "react-cookie";
+
+import { AuthContextType, User, ValidateFakeRequest } from "../ContextTypes";
+import {
+  simulateFakeRequest,
+  saveToLocalStorage,
+  simulateFakeRequestValidation,
+} from "../../utils";
 
 const authContextDefaultValues: AuthContextType = {
   currentUser: null,
@@ -17,10 +22,18 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
+  const [, setCookie] = useCookies(["isAuthenticated"]);
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   const login = async (email: string, password: string) => {
-    const token = (await generateAuthToken(password)) as string;
+    // Call API to get a authToken
+    const fakeToken = (await simulateFakeRequest()) as string;
+
+    // Call second API to validate AuthToken
+    const { token, isAuthenticated } = (await simulateFakeRequestValidation(
+      fakeToken
+    )) as ValidateFakeRequest;
+
     const id = email + password;
 
     const newUser = {
@@ -31,11 +44,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     };
 
     setCurrentUser(newUser);
+    setCookie("isAuthenticated", isAuthenticated);
     saveToLocalStorage("user", newUser);
   };
 
   const logout = () => {
     setCurrentUser(null);
+    setCookie("isAuthenticated", false);
     saveToLocalStorage("user", null);
   };
 

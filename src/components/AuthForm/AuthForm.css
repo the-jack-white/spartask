@@ -40,3 +40,19 @@
   color: #eeeeee;
   border-radius: 0.5rem;
 }
+
+.auth-loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 480px) {
+  .auth-form-input {
+    width: 80vw;
+  }
+
+  .auth-form-button {
+    width: 82vw;
+  }
+}
