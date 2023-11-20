@@ -88,4 +88,18 @@ describe("Task Component", () => {
       defaultProps.id
     );
   });
+
+  it("marks a task as complete when Radio is clicked", () => {
+    render(<Task {...defaultProps} />);
+
+    fireEvent.click(screen.getByTestId("radio-button"));
+
+    expect(mockEditTask).toHaveBeenCalledWith(
+      {
+        ...defaultProps,
+        completed: true,
+      },
+      defaultProps.id
+    );
+  });
 });
