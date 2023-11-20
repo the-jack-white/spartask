@@ -6,8 +6,14 @@ const Header = () => {
 
   return (
     <header className="header-container">
-      <span className="header-logo">SPARTASK</span>
-      <button className="header-button text-lg" onClick={logout}>
+      <span className="header-logo" data-testid="header-logo">
+        SPARTASK
+      </span>
+      <button
+        className="header-button text-lg"
+        onClick={logout}
+        data-testid="header-button"
+      >
         Logout
         <span className="bi bi-box-arrow-right header-button-icon" />
       </button>

@@ -31,7 +31,7 @@ const Task = ({
   };
 
   return !openEdit ? (
-    <div className="task-container bottom-border">
+    <div className="task-container bottom-border" data-testid="task-container">
       <Radio callback={radioHandler} selected={completed} />
       <Description
         title={title}
@@ -40,14 +40,16 @@ const Task = ({
         shortLength={80}
       />
       {!completed && (
-        <div className="task-icon-container">
+        <div className="task-icon-container" data-testid="task-icon-container">
           <span
             className="bi bi-pencil-square icon task-icon edit-icon"
             onClick={() => setOpenEdit(true)}
+            data-testid="task-icon-edit"
           />
           <span
             className="bi bi-trash icon task-icon remove-icon"
             onClick={() => removeTask(id)}
+            data-testid="task-icon-remove"
           />
         </div>
       )}

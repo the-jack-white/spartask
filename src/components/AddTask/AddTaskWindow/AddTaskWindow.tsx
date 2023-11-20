@@ -24,7 +24,6 @@ const AddTaskWindow = ({
   const [desc, setDesc] = useState<string>(editOptions?.description || "");
 
   const addTaskHandler = () => {
-    console.log("ADD Task.....");
     if (currentUser) {
       const task = {
         id: uuidv4(),
@@ -54,13 +53,14 @@ const AddTaskWindow = ({
   };
 
   return (
-    <div className="add-task-window">
+    <div className="add-task-window" data-testid="add-task-window">
       <input
         type="text"
         className="add-task-input text-lg"
         placeholder="Task Name"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        data-testid="add-task-window-name"
       />
       <input
         type="text"
@@ -68,11 +68,16 @@ const AddTaskWindow = ({
         placeholder="Description"
         value={desc}
         onChange={(e) => setDesc(e.target.value)}
+        data-testid="add-task-window-desc"
       />
-      <div className="add-task-button-container">
+      <div
+        className="add-task-button-container"
+        data-testid="add-task-window-button-container"
+      >
         <button
           className="add-task-action-btn"
           onClick={() => closeCallback(false)}
+          data-testid="add-task-window-close-button"
         >
           {closeTitle}
         </button>
@@ -80,6 +85,7 @@ const AddTaskWindow = ({
           className="add-task-action-btn btn-selected"
           disabled={title.length <= 0}
           onClick={!editOptions ? addTaskHandler : editTaskHandler}
+          data-testid="add-task-window-action-button"
         >
           {addTitle}
         </button>

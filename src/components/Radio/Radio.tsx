@@ -12,6 +12,7 @@ const Radio = ({ callback, selected }: RadioProps) => {
         selected ? "bi-check-circle" : "bi-circle"
       } radio-container `}
       onClick={callback}
+      data-testid="radio-button"
     />
   );
 };
