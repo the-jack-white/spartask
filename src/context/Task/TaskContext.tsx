@@ -20,7 +20,6 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
   const [allTasks, setAllTasks] = useState<Task[]>([]);
 
   const addTask = (task: Task) => {
-    console.log("[INFO] - Add Task: ", task);
     setAllTasks((prev) => {
       const newTaskState = [...prev, task];
       saveToLocalStorage("tasks", newTaskState);
@@ -30,15 +29,12 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const removeTask = (id: string) => {
-    console.log("[INFO] - Remove Task ID: ", id);
     const filtered = allTasks.filter((task) => task.id !== id);
     saveToLocalStorage("tasks", filtered);
     setAllTasks(filtered);
   };
 
   const editTask = (task: Task, id: string) => {
-    console.log("[INFO] - Edit Task: ", { task, id });
-
     const mappedTasks = allTasks.map((obj) => {
       if (obj.id === id) {
         return task;
