@@ -22,4 +22,5 @@ This project can be viewed at: [`https://spartask.vercel.app/`](https://spartask
 
 ## NOTES:
 - All the components and functions are unit tested with a coverage of no less than 85%.
+- I've also used vanilla CSS instead of a framework or UI library.
 - This project is of course not a production ready project and still, many improvements can be made. This project is just to demonstrate a working ReactJS project.
